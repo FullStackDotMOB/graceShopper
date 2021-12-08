@@ -33,4 +33,12 @@ const Product = db.define('product', {
     },
     allowNull: false,
   },
+  category: {
+    type: Sequelize.ENUM({
+      values: ['cat1', 'cat2', 'cat3', 'cat4'], //we'll name these categories Wednesday morning
+    }),
+  },
+  SKU: {
+    type: Sequelize.INTEGER,
+  },
 });
