@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User },
+  models: { User, Product, Cart },
 } = require('../server/db');
 
 /**
@@ -19,12 +19,36 @@ async function seed() {
     User.create({ username: 'murphy', password: '123' }),
   ]);
 
+  //Creating Products
+  const products = await Promise.all([
+    Product.create({
+      productName: 'Ara By Essence Bare Face Wash',
+      price: 20.0,
+      imageUrl: 'shorturl.at/fpvxF',
+      shopQuantity: 8,
+      category: 'Cleansers',
+      SKU: 1172,
+    }),
+    Product.create({
+      productName: 'AnteAGE Cleanser',
+      price: 40.0,
+      imageUrl: 'shorturl.at/gjHLQ',
+      shopQuantity: 4,
+      category: 'Cleansers',
+      SKU: 1738,
+    }),
+  ]);
   console.log(`seeded ${users.length} users`);
+  console.log(`seeded ${products.length} products`);
   console.log(`seeded successfully`);
   return {
     users: {
       cody: users[0],
       murphy: users[1],
+    },
+    products: {
+      bareFace: products[0],
+      anteAge: products[1],
     },
   };
 }

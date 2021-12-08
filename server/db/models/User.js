@@ -37,7 +37,7 @@ const User = db.define('user', {
   // },
   streetAddress: {
     type: Sequelize.STRING(200),
-    allowNull: false,
+    allowNull: true,
   },
 });
 
