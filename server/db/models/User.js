@@ -20,21 +20,21 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  email: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-    validate: {
-      isEmail: true,
-    },
-  },
-  phone: {
-    type: Sequelize.STRING(10),
-    allowNull: false,
-    validate: {
-      isInt: true,
-    },
-  },
+  // email: {
+  //   type: Sequelize.STRING,
+  //   unique: true,
+  //   allowNull: false,
+  //   validate: {
+  //     isEmail: true,
+  //   },
+  // },
+  // phone: {
+  //   type: Sequelize.STRING(10),
+  //   allowNull: false,
+  //   validate: {
+  //     isInt: true,
+  //   },
+  // },
   streetAddress: {
     type: Sequelize.STRING(200),
     allowNull: false,
