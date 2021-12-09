@@ -25,7 +25,7 @@ const initialState = {
 export default function productsReducer(state = initialState, action) {
   switch (action.type) {
     case ALL_PRODUCTS:
-      return { ...state, allProducts: action.product };
+      return { ...state, allProducts: action.products };
     default:
       return state;
   }
