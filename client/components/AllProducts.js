@@ -13,10 +13,14 @@ export default class AllProducts extends Component {
   render() {
     return (
       <>
-        <div>
-          <Link></Link>
-        </div>
         <h2>Welcome to Our Products Page!</h2>
+        <div>
+          {this.props.blank.map((SingleItem) => (
+            <div key={SingleProduct.id}>
+              <Link>{/* <SingleProduct SingleProduct{blank} */}</Link>
+            </div>
+          ))}
+        </div>
       </>
     );
   }
