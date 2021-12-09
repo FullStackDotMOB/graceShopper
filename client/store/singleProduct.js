@@ -11,6 +11,7 @@ export const fetchProduct = (productNumber) => {
     try {
       const { data } = await axios.get(`/api/products/${productNumber}`);
       dispatch(setProduct(data));
+      console.log();
     } catch (error) {
       console.error(error);
     }
@@ -24,7 +25,7 @@ const initialState = {
 export default function singleProductReducer(state = initialState, action) {
   switch (action.type) {
     case RETRIEVE_SINGLE_PRODUCT:
-      return { ...state, storedProduct: action.robot };
+      return { ...state, storedProduct: action.product };
     default:
       return state;
   }
