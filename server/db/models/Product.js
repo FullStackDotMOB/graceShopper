@@ -15,7 +15,7 @@ const Product = db.define('product', {
     type: Sequelize.STRING,
     allowNull: false,
     // if image does not pop up (or is not found)
-    defaultValue: 'default-product-image.jpg',
+    defaultValue: default-product-image.jpg, // Update
   },
   // rating: {
   //   type: Sequelize.INTEGER,
