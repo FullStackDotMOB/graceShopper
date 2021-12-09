@@ -35,10 +35,6 @@ const User = db.define('user', {
   //     isInt: true,
   //   },
   // },
-  streetAddress: {
-    type: Sequelize.STRING(200),
-    allowNull: true,
-  },
 });
 
 module.exports = User;
