@@ -22,19 +22,19 @@ async function seed() {
   //Creating Products
   const products = await Promise.all([
     Product.create({
-      productName: 'Ara By Essence Bare Face Wash',
-      price: 20.0,
+      name: 'Ara By Essence Bare Face Wash',
+      price: 2000,
       imageUrl: 'shorturl.at/fpvxF',
-      shopQuantity: 8,
-      category: 'Cleansers',
+      // shopQuantity: 8,
+      // category: 'Cleansers',
       SKU: 1172,
     }),
     Product.create({
-      productName: 'AnteAGE Cleanser',
-      price: 40.0,
+      name: 'AnteAGE Cleanser',
+      price: 4000,
       imageUrl: 'shorturl.at/gjHLQ',
-      shopQuantity: 4,
-      category: 'Cleansers',
+      // shopQuantity: 4,
+      // category: 'Cleansers',
       SKU: 1738,
     }),
   ]);
