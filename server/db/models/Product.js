@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const axios = require('axios');
 
 const Product = db.define('product', {
   name: {
@@ -17,25 +16,11 @@ const Product = db.define('product', {
     // if image does not pop up (or is not found)
     defaultValue: 'default-product-image.jpg',
   },
-  description: {
-    type: Sequelize.TEXT,
-    defaultValue: 'This is a product description'
-  }
-  // rating: {
-  //   type: Sequelize.INTEGER,
-  //   validate: {
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   defaultValue: null,
+  // description: {
+  //   type: Sequelize.TEXT,
+  //   defaultValue: 'This is a product description',
   // },
-  // quantity: {
-  //   type: Sequelize.INTEGER,
-  //   validate: {
-  //     min: 1,
-  //   },
-  //   allowNull: false,
-  // },
+
   SKU: {
     type: Sequelize.INTEGER,
   },

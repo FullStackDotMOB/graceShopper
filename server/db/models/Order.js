@@ -48,3 +48,5 @@ const Order = db.define('Order', {
     },
   },
 });
+
+module.exports = Order;
