@@ -10,7 +10,6 @@ export class SingleProduct extends React.Component {
   render() {
     console.log(this.props.storedProduct);
     return (
-      //   <h1>This is Single Product Page</h1>
       <div>
         <ul>
           <div>
