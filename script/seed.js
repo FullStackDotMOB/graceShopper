@@ -38,9 +38,33 @@ async function seed() {
       SKU: 1738,
     }),
   ]);
+  //Creating Orders
+  const orders = await Promise.all([
+    Order.create({
+      addressLine1: 'line 1',
+      addressLine2: 'line 2',
+      city: 'city',
+      state: 'state',
+      zip: '10001',
+      phone: '123-456-789',
+      email: 'unqiue2@mail.com',
+    }),
+    Order.create({
+      addressLine1: 'line 1',
+      addressLine2: 'line 2',
+      city: 'city',
+      state: 'state',
+      zip: '10001',
+      phone: '123-456-789',
+      email: 'unqiue1@mail.com',
+    }),
+  ]);
+
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${products.length} products`);
+  console.log(`seeded ${orders.length} orders`);
   console.log(`seeded successfully`);
+
   return {
     users: {
       cody: users[0],
@@ -49,6 +73,10 @@ async function seed() {
     products: {
       bareFace: products[0],
       anteAge: products[1],
+    },
+    orders: {
+      order1: orders[0],
+      order2: orders[1],
     },
   };
 }

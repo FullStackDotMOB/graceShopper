@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const Order = db.define('Order', {
+const Order = db.define('order', {
   complete: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
@@ -33,11 +33,8 @@ const Order = db.define('Order', {
     allowNull: false,
   },
   phone: {
-    type: Sequelize.STRING(10),
+    type: Sequelize.STRING(12),
     allowNull: false,
-    validate: {
-      isInt: true,
-    },
   },
   email: {
     type: Sequelize.STRING,
