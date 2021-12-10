@@ -20,7 +20,7 @@ export class AllProducts extends Component {
           <div key={product.id}>
             <div>
               <h3>{product.name}</h3>
-              <h3>{product.price}</h3>
+              <h3>${product.price / 100}</h3>
               <h3>
                 <img src={product.imageUrl} />
               </h3>
@@ -28,7 +28,6 @@ export class AllProducts extends Component {
             </div>
           </div>
         ))}
-        );
       </div>
     );
   }
