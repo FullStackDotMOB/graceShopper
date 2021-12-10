@@ -17,6 +17,10 @@ const Product = db.define('product', {
     // if image does not pop up (or is not found)
     defaultValue: 'default-product-image.jpg',
   },
+  description: {
+    type: Sequelize.TEXT,
+    defaultValue: 'This is a product description'
+  }
   // rating: {
   //   type: Sequelize.INTEGER,
   //   validate: {
