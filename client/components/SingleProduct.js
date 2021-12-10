@@ -25,7 +25,7 @@ export class SingleProduct extends React.Component {
 }
 
 const mapState = (state) => {
-  return state.singleProduct;
+  return state.Product;
 };
 
 const mapDispatch = (dispatch) => {
