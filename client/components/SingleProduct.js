@@ -8,25 +8,25 @@ export class SingleProduct extends React.Component {
   }
 
   render() {
-    console.log(this.props.product);
+    console.log(this.props.storedProduct);
     return (
-      <h1>This is Single Product Page</h1>
-      //   <div>
-      //     <ul>
-      //       <div>
-      //         <h1>{this.props.storedProduct.name}</h1>
-      //         <img src={this.props.storedProduct.imgUrl} />
-      //         <h2>{this.props.storedProduct.price / 100}</h2>
-      //       </div>
-      //     </ul>
-      //   </div>
+      //   <h1>This is Single Product Page</h1>
+      <div>
+        <ul>
+          <div>
+            <h1>{this.props.storedProduct.name}</h1>
+            <img src={this.props.storedProduct.imgUrl} />
+            <h2>${this.props.storedProduct.price / 100}</h2>
+          </div>
+        </ul>
+      </div>
     );
   }
 }
 
-// const mapState = (state) => {
-//   return state.singleProduct;
-// };
+const mapState = (state) => {
+  return state.singleProduct;
+};
 
 const mapDispatch = (dispatch) => {
   return {
@@ -34,4 +34,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatch)(SingleProduct);
+export default connect(mapState, mapDispatch)(SingleProduct);
