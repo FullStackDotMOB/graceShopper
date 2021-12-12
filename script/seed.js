@@ -24,7 +24,8 @@ async function seed() {
     Product.create({
       name: 'Ara By Essence Bare Face Wash',
       price: 2000,
-      imageUrl: 'shorturl.at/fpvxF',
+      imageUrl:
+        'https://images.squarespace-cdn.com/content/v1/5ed6c874b197c460fc4dddc2/1621651749463-8FGCIW6QY81NYAX7H6PM/7F220B03-CEF9-43FC-932B-5B11CBBD1F82?format=300w',
       // shopQuantity: 8,
       // category: 'Cleansers',
       SKU: 1172,
@@ -32,7 +33,8 @@ async function seed() {
     Product.create({
       name: 'AnteAGE Cleanser',
       price: 4000,
-      imageUrl: 'shorturl.at/gjHLQ',
+      imageUrl:
+        'https://images.squarespace-cdn.com/content/v1/5ed6c874b197c460fc4dddc2/1627932704386-5KODA3VGU3XK91NGIN2I/anteage.jpg?format=300w',
       // shopQuantity: 4,
       // category: 'Cleansers',
       SKU: 1738,

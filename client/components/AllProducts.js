@@ -16,18 +16,20 @@ export class AllProducts extends Component {
     return (
       <div>
         <h2>Welcome to Our Products Page!</h2>
-        {this.props.allProducts.map((product) => (
-          <div key={product.id}>
-            <div>
-              <h3>{product.name}</h3>
-              <h3>${product.price / 100}</h3>
-              <h3>
-                <img src={product.imageUrl} />
-              </h3>
-              <h3>{product.SKU}</h3>
+        <div>
+          {this.props.allProducts.map((product) => (
+            <div key={product.id}>
+              <div>
+                <h3>{product.name}</h3>
+                <h3>${product.price / 100}</h3>
+                <h3>
+                  <img src={product.imageUrl} />
+                </h3>
+                <h3>{product.SKU}</h3>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }
