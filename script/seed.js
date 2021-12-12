@@ -28,6 +28,8 @@ async function seed() {
         'https://images.squarespace-cdn.com/content/v1/5ed6c874b197c460fc4dddc2/1621651749463-8FGCIW6QY81NYAX7H6PM/7F220B03-CEF9-43FC-932B-5B11CBBD1F82?format=300w',
       // shopQuantity: 8,
       // category: 'Cleansers',
+      description:
+        'This hydrating, daily facial cleanser  was created to remove impurities from the skin in a gentle, effective manner. A small amount goes a long way, which means this bottle will last a long time!',
       SKU: 1172,
     }),
     Product.create({
@@ -37,6 +39,8 @@ async function seed() {
         'https://images.squarespace-cdn.com/content/v1/5ed6c874b197c460fc4dddc2/1627932704386-5KODA3VGU3XK91NGIN2I/anteage.jpg?format=300w',
       // shopQuantity: 4,
       // category: 'Cleansers',
+      description:
+        'The universally formulated AnteAGE® Cleanser is designed to provide a balanced approach to cleansing, for all skin types. This gentle, foaming cleanser, enriched with essential fatty acids, anti-oxidants, anti-inflammatory botanicals and detoxifying actives will thoroughly cleanse all traces of impurities, excess oil and surface debris, while leaving the skin soft, soothed, hydrated and balanced.',
       SKU: 1738,
     }),
   ]);
