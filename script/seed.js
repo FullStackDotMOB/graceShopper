@@ -15,8 +15,10 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
+    User.create({ username: 'courage', password: '123' }),
+    User.create({ username: 'murphy', password: '345' }),
+    User.create({ username: 'eustace', password: '678' }),
+    User.create({ username: 'muriel', password: '972' }),
   ]);
 
   //Creating Products
@@ -116,19 +118,31 @@ async function seed() {
       addressLine1: 'line 1',
       addressLine2: 'line 2',
       city: 'city',
-      state: 'state',
+      state: 'NY',
       zip: '10001',
-      phone: '123-456-789',
-      email: 'unqiue2@mail.com',
+      phone: '123-456-7891',
+      email: 'unique1@mail.com',
+      complete: false,
     }),
     Order.create({
-      addressLine1: 'line 1',
-      addressLine2: 'line 2',
-      city: 'city',
-      state: 'state',
-      zip: '10001',
-      phone: '123-456-789',
-      email: 'unqiue1@mail.com',
+      addressLine1: 'line 3',
+      addressLine2: 'line 4',
+      city: 'second city',
+      state: 'second state',
+      zip: '10027',
+      phone: '321-645-7892',
+      email: 'unique2@mail.com',
+      complete: true,
+    }),
+    Order.create({
+      addressLine1: 'line 5',
+      addressLine2: 'line 6',
+      city: 'third city',
+      state: 'NY',
+      zip: '10040',
+      phone: '347-862-6943',
+      email: 'unique3@mail.com',
+      complete: false,
     }),
   ]);
 
@@ -139,16 +153,25 @@ async function seed() {
 
   return {
     users: {
-      cody: users[0],
+      courage: users[0],
       murphy: users[1],
+      eustace: users[2],
+      muriel: users[3],
     },
     products: {
       bareFace: products[0],
       anteAge: products[1],
+      radiant: products[2],
+      paulasChoice: products[3],
+      enzymeMask: products[4],
+      brightSolution: products[5],
+      moistureMist: products[6],
+      freshEssence: products[7],
     },
     orders: {
       order1: orders[0],
       order2: orders[1],
+      order3: orders[2],
     },
   };
 }
