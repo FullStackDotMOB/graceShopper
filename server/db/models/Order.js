@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
+const Order_item = require('./Order_item');
 
 const Order = db.define('order', {
   complete: {
@@ -45,5 +46,31 @@ const Order = db.define('order', {
     },
   },
 });
+
+// Order.belongsTo(User);
+// User.hasMany(Order);
+
+// Order.clearCart = function () {
+//   return this.update({ where: { complete: true } });
+// };
+
+// Order.updateAll = function () {
+//   return this.update({ complete: true }, { where: { complete: false } });
+// };
+
+// User.getCart = async function () {
+//   const cart = await User.findAll({
+//     include: [{ model: Order }],
+//   });
+//   return owners;
+// };
+
+// User.prototype.getUnfulledOrders = async function () {
+//   const Order = await this.getCart();
+//   const OrderinProgess = Order.filter((Order_item) => {
+//     return !Order.complete;
+//   });
+//   return OrderinProgess;
+// };
 
 module.exports = Order;
