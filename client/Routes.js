@@ -6,6 +6,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import { me } from './store';
+import Cart from './components/cart';
 
 /**
  * COMPONENT
@@ -40,6 +41,9 @@ class Routes extends Component {
         <div>
           <Switch>
             <Route path="/products/:productId" component={SingleProduct} />
+          </Switch>
+          <Switch>
+            <Route path="/cart" component={Cart} />
           </Switch>
         </div>
       </div>
