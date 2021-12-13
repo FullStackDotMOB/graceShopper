@@ -14,8 +14,9 @@ export class SingleProduct extends React.Component {
         <ul>
           <div>
             <h1>{this.props.storedProduct.name}</h1>
-            <img src={this.props.storedProduct.imgUrl} />
+            <img src={this.props.storedProduct.imageUrl} />
             <h2>${this.props.storedProduct.price / 100}</h2>
+            <p>{this.props.storedProduct.description}</p>
           </div>
         </ul>
       </div>
