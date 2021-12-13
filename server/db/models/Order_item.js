@@ -22,9 +22,3 @@ const Order_item = db.define('order_item', {
 });
 
 module.exports = Order_item;
-
-// Order_item.create({
-//   order1: orders[0],
-//   bareFace: products[0],
-//   anteAge: products[1],
-// });

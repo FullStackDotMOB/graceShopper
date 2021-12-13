@@ -7,7 +7,6 @@ router.get('/', async (req, res, next) => {
   try {
     const allProduct = await Product.findAll({});
     res.send(allProduct);
-    console.log(Object.keys(User.prototype));
   } catch (error) {
     next(error);
   }
