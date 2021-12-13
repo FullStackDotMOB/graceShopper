@@ -18,6 +18,7 @@ export const fetchProducts = () => {
   };
 };
 
+// o: if you are only track one thing then why group it by key
 const initialState = {
   allProducts: [],
 };

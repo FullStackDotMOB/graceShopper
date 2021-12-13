@@ -29,6 +29,7 @@ export default function cartReducer(state = initialState, action) {
     // case CART_LOAD:
     //   return { ...state, loading: true };
     case VIEW_CART:
+      // o: why is this adding new products, when you have a cart key
       return { ...state, products: action.cart };
     default:
       return state;

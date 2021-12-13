@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
+// o: better name could be OrderItem
 const Order_item = db.define('order_item', {
   orderItemPrice: {
     type: Sequelize.INTEGER,

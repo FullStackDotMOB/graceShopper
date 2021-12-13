@@ -9,6 +9,8 @@ export class SingleProduct extends React.Component {
 
   render() {
     console.log(this.props.storedProduct);
+
+    // o: you can destructure this for more readability
     return (
       <div>
         <ul>
