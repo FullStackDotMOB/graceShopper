@@ -21,14 +21,18 @@ export class AllProducts extends Component {
           {this.props.allProducts.map((product) => (
             <div key={product.id}>
               <div>
-                <Link to={`products/${product.id}`}>
-                  <h3>{product.name}</h3>
-                </Link>
-                <Link to={`products/${product.id}`}>
-                  <h3>
-                    <img src={product.imageUrl} />
-                  </h3>
-                </Link>
+                <div>
+                  <Link to={`products/${product.id}`}>
+                    <h3>{product.name}</h3>
+                  </Link>
+                </div>
+                <div>
+                  <Link to={`products/${product.id}`}>
+                    <h3>
+                      <img src={product.imageUrl} />
+                    </h3>
+                  </Link>
+                </div>
                 <h3>${product.price / 100}</h3>
                 <p>#{product.SKU}</p>
               </div>
