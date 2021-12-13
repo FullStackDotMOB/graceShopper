@@ -20,18 +20,13 @@ export const fetchCart = () => async (dispatch) => {
   }
 };
 
-const cartReducer = (
-  cart = { products: [], loading: false, error: null },
-  action
-) => {
+export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     case CART_LOAD:
-      return { ...cart, loading: true };
+      return { ...state, loading: true };
     case VIEW_CART:
-      return { ...cart, items: action.cart };
+      return { ...state, products: action.cart };
     default:
-      return cart;
+      return state;
   }
-};
-
-export default cartReducer;
+}

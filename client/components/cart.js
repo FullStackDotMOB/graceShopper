@@ -9,29 +9,23 @@ class Cart extends React.Component {
   }
 
   render() {
-    const { cart } = this.props;
-    if (!cart || cart === undefined || cart.length === 0) {
-      return (
-        <div>
-          <h1>Your Shopping Cart is Empty!</h1>
-          <h2>
-            <Link to="/products">Check out the Product Store!</Link>
-          </h2>
-        </div>
-      );
-    }
+    return (
+      <div>
+        <h1>Your Shopping Cart is Empty!</h1>
+        <h2>
+          <Link to="/products">Check out the Product Store!</Link>
+        </h2>
+      </div>
+    );
   }
 }
 
 const mapState = (state) => ({
-  cart: state.cart.items,
+  cart: state.cart.products,
 });
 
 const mapDispatch = (dispatch) => ({
   loadCart: () => dispatch(fetchCart()),
-  updateCart: (item, qty) => dispatch(updateCart(item, qty)),
-  removeAll: (item) => dispatch(removeAll(item)),
-  checkout: () => dispatch(checkout()),
 });
 
 export default connect(mapState, mapDispatch)(Cart);
