@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { User },
+  models: { User, Order, OrderItem, Product },
 } = require('../db');
 module.exports = router;
 
@@ -15,5 +15,38 @@ router.get('/', async (req, res, next) => {
     res.json(users);
   } catch (err) {
     next(err);
+  }
+});
+
+router.get('/:userId', async (req, res, next) => {
+  try {
+    const singleUser = await User.findByPk(req.params.userId);
+    res.send(singleUser);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/:userId/cart', async (req, res, next) => {
+  try {
+    const cart = await Order.findAll({
+      where: {
+        complete: false,
+        userId: req.params.userId,
+      },
+      include: [
+        {
+          model: OrderItem,
+          include: [
+            {
+              model: Product,
+            },
+          ],
+        },
+      ],
+    });
+    res.send(cart);
+  } catch (error) {
+    next(error);
   }
 });
