@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-// o: better name could be OrderItem
-const Order_item = db.define('order_item', {
+// Orlando: better name could be OrderItem
+const OrderItem = db.define('order_item', {
   orderItemPrice: {
     type: Sequelize.INTEGER,
   },
@@ -16,4 +16,4 @@ const Order_item = db.define('order_item', {
   },
 });
 
-module.exports = Order_item;
+module.exports = OrderItem;

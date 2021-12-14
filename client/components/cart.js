@@ -1,4 +1,4 @@
-// o: filename should be capitalized
+// Orlando: filename should be capitalized
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';

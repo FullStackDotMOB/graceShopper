@@ -20,17 +20,15 @@ export const fetchCart = () => async (dispatch) => {
   }
 };
 
-const initialState = {
-  cart: [],
-};
+const initialState = [];
 
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     // case CART_LOAD:
     //   return { ...state, loading: true };
     case VIEW_CART:
-      // o: why is this adding new products, when you have a cart key
-      return { ...state, products: action.cart };
+      // Orlando: why is this adding new products, when you have a cart key
+      return action.cart;
     default:
       return state;
   }

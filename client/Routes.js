@@ -21,7 +21,7 @@ class Routes extends Component {
 
     return (
       <div>
-        {/* o: why so many switches here? */}
+        {/* Orlando: why so many switches here? */}
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
@@ -35,17 +35,11 @@ class Routes extends Component {
           </Switch>
         )}
         <div>
-          <Switch>
-            <Route exact path="/products" component={AllProducts} />
-          </Switch>
+          <Route exact path="/products" component={AllProducts} />
         </div>
         <div>
-          <Switch>
-            <Route path="/products/:productId" component={SingleProduct} />
-          </Switch>
-          <Switch>
-            <Route path="/cart" component={Cart} />
-          </Switch>
+          <Route path="/products/:productId" component={SingleProduct} />
+          <Route path="/cart" component={Cart} />
         </div>
       </div>
     );
