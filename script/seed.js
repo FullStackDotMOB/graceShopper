@@ -115,6 +115,7 @@ async function seed() {
   //Creating Orders
   const orders = await Promise.all([
     Order.create({
+      userId: 3,
       addressLine1: 'line 1',
       addressLine2: 'line 2',
       city: 'city',
@@ -125,6 +126,7 @@ async function seed() {
       complete: false,
     }),
     Order.create({
+      userId: 2,
       addressLine1: 'line 3',
       addressLine2: 'line 4',
       city: 'second city',
@@ -135,6 +137,7 @@ async function seed() {
       complete: true,
     }),
     Order.create({
+      userId: 1,
       addressLine1: 'line 5',
       addressLine2: 'line 6',
       city: 'third city',

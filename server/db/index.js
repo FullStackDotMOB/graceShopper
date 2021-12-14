@@ -11,8 +11,8 @@ const OrderItem = require('./models/OrderItem');
 Order.belongsTo(User);
 User.hasMany(Order);
 
-Order.belongsToMany(Product, { through: OrderItem });
-Product.belongsToMany(Order, { through: OrderItem });
+Order.hasMany(OrderItem);
+OrderItem.belongsTo(Order);
 
 Product.hasMany(OrderItem);
 OrderItem.belongsTo(Product);

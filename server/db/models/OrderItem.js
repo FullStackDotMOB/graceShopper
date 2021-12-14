@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 // Orlando: better name could be OrderItem
-const OrderItem = db.define('order_item', {
+const OrderItem = db.define('orderItem', {
   orderItemPrice: {
     type: Sequelize.INTEGER,
   },
