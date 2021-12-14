@@ -9,10 +9,10 @@ const VIEW_CART = 'VIEW_CART';
 
 const viewCart = (cart) => ({ type: VIEW_CART, cart });
 
-export const fetchCart = () => async (dispatch) => {
+export const fetchCart = (userId) => async (dispatch) => {
   try {
     // dispatch(cartLoad());
-    const { data } = await axios.get('/api/cart');
+    const { data } = await axios.get(`/api/users/${userId}/cart`);
     dispatch(viewCart(data));
   } catch (err) {
     console.log(err);
