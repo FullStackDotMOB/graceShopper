@@ -17,6 +17,8 @@ export const fetchProduct = (productNumber) => {
   };
 };
 
+// o: why do you have storedProduct as a key and why is the value an array?
+//  also, if you are only track one thing then why group it by key
 const initialState = {
   storedProduct: [],
 };
