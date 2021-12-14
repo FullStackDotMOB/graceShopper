@@ -29,10 +29,10 @@ router.get('/:userId', async (req, res, next) => {
 
 router.get('/:userId/cart', async (req, res, next) => {
   try {
-    const cart = await Order.findAll({
+    const cart = await Order.findOne({
       where: {
         complete: false,
-        userId: req.params.userId,
+        userId: parseInt(req.params.userId),
       },
       include: [
         {
@@ -44,7 +44,8 @@ router.get('/:userId/cart', async (req, res, next) => {
           ],
         },
       ],
-    });
+    }); //Test to see if cart exist send back 404 error
+    console.log('cart', cart);
     res.send(cart);
   } catch (error) {
     next(error);

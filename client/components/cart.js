@@ -2,17 +2,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { me } from '../store';
 import { fetchCart } from '../store/cart';
 
 class Cart extends React.Component {
-  componentDidMount() {
-    this.props.loadCart();
+  async componentDidMount() {
+    await this.props.me(); //ME thunk
+    if (this.props.auth.id) {
+      await this.props.fetchCart(this.props.auth.id);
+      console.log('props', this.props);
+    }
   }
 
   render() {
+    const { cart } = this.props;
+    console.log(cart);
     return (
       <div>
-        <h1>Your Shopping Cart is Empty!</h1>
+        {!cart ? (
+          <h1>Your Shopping Cart is Empty!</h1>
+        ) : (
+          <div>
+            {/* {cart.map((cartiem) => (
+              <div key={cart.id}> {cartiem.zip} </div>
+            ))} */}
+          </div>
+        )}
+
         <h2>
           <Link to="/products">Check out the Product Store!</Link>
         </h2>
@@ -20,13 +36,14 @@ class Cart extends React.Component {
     );
   }
 }
-
 const mapState = (state) => ({
-  cart: state.cart.products,
+  cart: state.cart,
+  auth: state.auth,
 });
 
 const mapDispatch = (dispatch) => ({
-  loadCart: () => dispatch(fetchCart()),
+  fetchCart: (userId) => dispatch(fetchCart(userId)),
+  me: () => dispatch(me),
 });
 
 export default connect(mapState, mapDispatch)(Cart);

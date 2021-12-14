@@ -156,6 +156,18 @@ async function seed() {
       orderId: 3,
       productId: 3,
     }),
+    OrderItem.create({
+      orderItemPrice: 3600,
+      orderItemQuantity: 3,
+      orderId: 3,
+      productId: 4,
+    }),
+    OrderItem.create({
+      orderItemPrice: 2000,
+      orderItemQuantity: 2,
+      orderId: 3,
+      productId: 5,
+    }),
   ]);
 
   console.log(`seeded ${users.length} users`);

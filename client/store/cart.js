@@ -13,6 +13,7 @@ export const fetchCart = (userId) => async (dispatch) => {
   try {
     // dispatch(cartLoad());
     const { data } = await axios.get(`/api/users/${userId}/cart`);
+    console.log('Data', data);
     dispatch(viewCart(data));
   } catch (err) {
     console.log(err);
