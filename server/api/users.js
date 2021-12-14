@@ -12,8 +12,18 @@ router.get('/', async (req, res, next) => {
       // send everything to anyone who asks!
       attributes: ['id', 'username'],
     });
+    console.log(Object.keys(User.prototype));
     res.json(users);
   } catch (err) {
     next(err);
+  }
+});
+
+router.get('/:userId', async (req, res, next) => {
+  try {
+    const singleUser = await User.findByPk(req.params.userId);
+    res.send(singleUser);
+  } catch (error) {
+    next(error);
   }
 });

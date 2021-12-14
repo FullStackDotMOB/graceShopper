@@ -12,3 +12,12 @@ router.get('/', async (req, res, next) => {
     next(error);
   }
 });
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newCart = await Order.addProducts();
+    res.status(200).send(newCart);
+  } catch (error) {
+    next(error);
+  }
+});
