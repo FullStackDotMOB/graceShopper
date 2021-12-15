@@ -3,13 +3,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { me } from '../store';
-import { fetchCart } from '../store/cart';
+import { viewFromCart } from '../store/cart';
 
 class Cart extends React.Component {
   async componentDidMount() {
     await this.props.me(); //ME thunk
     if (this.props.auth.id) {
-      await this.props.fetchCart(this.props.auth.id);
+      await this.props.viewFromCart(this.props.auth.id);
       console.log('props', this.props);
     }
   }
@@ -42,7 +42,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-  fetchCart: (userId) => dispatch(fetchCart(userId)),
+  viewFromCart: (userId) => dispatch(viewFromCart(userId)),
+  addToCart: () => dispatch
   me: () => dispatch(me),
 });
 

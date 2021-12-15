@@ -4,6 +4,7 @@ const {
 } = require('../db');
 module.exports = router;
 
+//find all users
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -18,6 +19,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+//find single users by primaary key
 router.get('/:userId', async (req, res, next) => {
   try {
     const singleUser = await User.findByPk(req.params.userId);
@@ -27,6 +29,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 });
 
+//find user cart by users id
 router.get('/:userId/cart', async (req, res, next) => {
   try {
     const cart = await Order.findOne({
