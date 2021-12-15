@@ -3,8 +3,9 @@ const {
   models: { User, Order, OrderItem, Product },
 } = require('../db');
 module.exports = router;
+const { isAdmin } = require('./securityMiddleware');
 
-router.get('/', async (req, res, next) => {
+router.get('/', isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
@@ -18,7 +19,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/:userId', async (req, res, next) => {
+router.get('/:userId', isAdmin, async (req, res, next) => {
   try {
     const singleUser = await User.findByPk(req.params.userId);
     res.send(singleUser);
@@ -27,7 +28,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 });
 
-router.get('/:userId/cart', async (req, res, next) => {
+router.get('/:userId/cart', isAdmin, async (req, res, next) => {
   try {
     const cart = await Order.findOne({
       where: {
@@ -51,3 +52,30 @@ router.get('/:userId/cart', async (req, res, next) => {
     next(error);
   }
 });
+
+// router.delete('/:userId', isAdmin, async (req, res, next) => {
+//   try {
+//     const userToDelete = await User.findByPk(req.params.userId);
+//     await userToDelete.destroy();
+//     res.sendStatus(204);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+// router.put('/:userId', isAdmin, async (req, res, next) => {
+//   try {
+//     const user = await User.findByPk(req.params.userId);
+//     res.json(await user.update(req.body));
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+// router.post('/', isAdmin, async (req, res, next) => {
+//   try {
+//     res.status(201).send(await User.create(req.body));
+//   } catch (error) {
+//     next(error);
+//   }
+// });
