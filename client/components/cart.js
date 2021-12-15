@@ -10,23 +10,28 @@ class Cart extends React.Component {
     await this.props.me(); //ME thunk
     if (this.props.auth.id) {
       await this.props.fetchCart(this.props.auth.id);
-      console.log('props', this.props);
+      //console.log('props', this.props);
     }
   }
 
   render() {
     const { cart } = this.props;
-    console.log(cart);
+    console.log('This is this.props.cart.id: ', cart.id);
     return (
       <div>
         {!cart ? (
           <h1>Your Shopping Cart is Empty!</h1>
         ) : (
           <div>
-            <h3>{cart.addressLine1}</h3>
-            {/* {cart.map((cartiem) => (
-              <div key={cart.id}> {cartiem.zip} </div>
-            ))} */}
+            {/* <h3>{cart.city}</h3> */}
+            <div>
+              {cart.map((cartItem) => (
+                <div key={cartItem.orderItems.id}>
+                  {' '}
+                  {cartItem.orderItems.id}{' '}
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
