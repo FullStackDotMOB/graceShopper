@@ -23,6 +23,7 @@ class Cart extends React.Component {
           <h1>Your Shopping Cart is Empty!</h1>
         ) : (
           <div>
+            <h3>{cart.addressLine1}</h3>
             {/* {cart.map((cartiem) => (
               <div key={cart.id}> {cartiem.zip} </div>
             ))} */}
