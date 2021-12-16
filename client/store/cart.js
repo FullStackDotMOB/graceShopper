@@ -8,7 +8,7 @@ const VIEW_CART = 'VIEW_CART';
 
 //ACTION CREATORS
 const viewCart = (cart) => ({ type: VIEW_CART, cart });
-const addToCart = (cart) => ({ type: ADD_TO_CART, cart });
+const addToUserCart = (cart) => ({ type: ADD_TO_CART, cart });
 
 export const addItemsToCart = (addedProducts) => ({
   type: ADD_GUEST_CART,
@@ -51,7 +51,7 @@ export const addProductToCart = (userId, productId) => async (dispatch) => {
   try {
     const { data } = await axios.post(`/api/users/${userId}/cart/${productId}`);
     console.log('Add to Product Data:', data);
-    dispatch(addToCart(data));
+    dispatch(addToUserCart(data));
   } catch (error) {
     console.error(error);
   }
