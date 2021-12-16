@@ -6,6 +6,26 @@ import { me } from '../store';
 import { fetchCart } from '../store/cart';
 
 class Cart extends React.Component {
+  //   constructor(props){
+  //   super(props);
+  //  const = { Cart } = this.state
+
+  //     this.handleSubmit = this.handleSubmit.bind(this);
+  //     this.handleChange = this.handleChange.bind(this);
+  //   }
+
+  //   handleSubmit(evt) {
+  //     evt.preventDefault();
+  //     this.props.thunk({ ...this.state });
+
+  //     }
+  //   }
+
+  //   handleChange(evt) {
+  //     this.setState({ [evt.target.name]: evt.target.value });
+  //     console.log('handleChange evt.target -->', evt.target);
+  //   }
+
   async componentDidMount() {
     await this.props.me(); //ME thunk
     if (this.props.auth.id) {
@@ -71,6 +91,7 @@ class Cart extends React.Component {
     );
   }
 }
+
 const mapState = (state) => ({
   cart: state.cart,
   auth: state.auth,
