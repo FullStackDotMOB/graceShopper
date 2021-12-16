@@ -23,37 +23,43 @@ class GuestCart extends React.Component {
 
   render() {
     const { cart } = this.state;
+    console.log(cart);
 
     return (
       <div>
         <h3>
           {cart.map((item) => {
+            console.log(item);
             return (
               <div key={item.id}>
-                <Link to={`products/${item.product.id}`}>
+                <Link to={`products/${item.id}`}>
                   <div>
-                    <h3>{item.product.name}</h3>
+                    <h3>{item.name}</h3>
                   </div>
                 </Link>
-                <Link to={`products/${item.product.id}`}>
+                <Link to={`products/${item.id}`}>
                   <div>
-                    <img src={item.product.imageUrl} />
+                    <img src={item.imageUrl} />
                   </div>
                 </Link>
                 <div>
-                  <h2>${item.product.price / 100}</h2>
+                  <h2>${item.price / 100}</h2>
                 </div>
-                <div>#{item.product.SKU}</div>
+                <div>#{item.SKU}</div>
               </div>
             );
           })}
         </h3>
         <div>
-          {/* {cart.map((cartItem) => (
-                <div key={cartItem.id}>
-                  <div>{cartItemid}</div>
-                </div>
-              ))} */}
+          <Link to="/products">
+            <button
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
+              <label>Remove from Cart</label>
+            </button>
+          </Link>
         </div>
         <div>
           <button>Complete Your Order</button>
