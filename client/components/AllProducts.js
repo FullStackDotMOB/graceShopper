@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../store/product';
 import { Link } from 'react-router-dom';
+import { addToCart, addItemsToCart } from '../store/cart';
 
 export class AllProducts extends Component {
   componentDidMount() {
@@ -14,6 +15,8 @@ export class AllProducts extends Component {
   render() {
     // const Products = this.props.loadProducts;
     // console.log('product', Products);
+    const { addToCart, addedProducts } = this.props;
+
     return (
       <div>
         <h2>Welcome to Our Products Page!</h2>
@@ -37,6 +40,13 @@ export class AllProducts extends Component {
                 <p>#{product.SKU}</p>
                 <button type="submit">Add Item to Cart</button>
               </div>
+              <button
+                onClick={() => {
+                  addToCart(product);
+                }}
+              >
+                <label>Add to Cart</label>
+              </button>
             </div>
           ))}
         </div>
@@ -50,6 +60,7 @@ const mapState = (state) => {
 };
 const mapDispatch = (dispatch) => {
   return {
+    addToCart: (addedProducts) => dispatch(addToCart(addedProducts)),
     loadProducts: () => dispatch(fetchProducts()),
   };
 };
