@@ -41,7 +41,7 @@ export class AllProducts extends Component {
               </div>
               <button
                 onClick={() => {
-                  addToCart(addedProducts);
+                  addToCart(product);
                 }}
               >
                 <label>Add to Cart</label>

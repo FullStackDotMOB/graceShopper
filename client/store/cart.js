@@ -29,24 +29,17 @@ export const fetchCart = (userId) => async (dispatch) => {
 
 export const addToCart = (addedProducts) => async (dispatch) => {
   try {
-    const emptyCart = [];
     const guestCart = localStorage.getItem('cart')
       ? JSON.parse(localStorage.getItem('cart'))
       : [];
 
-    const storedItems = guestCart.filter(
-      (guestCart) => guestCart.id === product.id
-    );
+    // const addProduct = { ...addedProducts };
+    console.log(addedProducts);
 
-    //check items then store Items
-    if (!storedItems.length) {
-      const addProduct = { ...addedProducts };
+    guestCart.push(addedProducts);
 
-      guestCart.push(addProduct);
-
-      localStorage.setItem('cart', JSON.stringify(storedItems));
-      dispatch(addItemsToCart(storedItems));
-    }
+    const setItems = localStorage.setItem('cart', JSON.stringify(guestCart));
+    dispatch(addItemsToCart(setItems));
   } catch (err) {
     console.log(err);
   }
