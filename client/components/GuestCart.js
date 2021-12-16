@@ -30,20 +30,20 @@ class GuestCart extends React.Component {
           {cart.map((item) => {
             return (
               <div key={item.id}>
-                <Link to={`products/${item.product.id}`}>
+                <Link to={`products/${item.id}`}>
                   <div>
-                    <h3>{item.product.name}</h3>
+                    <h3>{item.name}</h3>
                   </div>
                 </Link>
-                <Link to={`products/${item.product.id}`}>
+                <Link to={`products/${item.id}`}>
                   <div>
-                    <img src={item.product.imageUrl} />
+                    <img src={item.imageUrl} />
                   </div>
                 </Link>
                 <div>
-                  <h2>${item.product.price / 100}</h2>
+                  <h2>${item.price / 100}</h2>
                 </div>
-                <div>#{item.product.SKU}</div>
+                <div>#{item.SKU}</div>
               </div>
             );
           })}
@@ -56,7 +56,9 @@ class GuestCart extends React.Component {
               ))} */}
         </div>
         <div>
-          <button>Complete Your Order</button>
+          <Link to="/Checkout">
+            <button>Complete Your Order</button>
+          </Link>
         </div>
         <h2>
           <Link to="/products">Check out the Product Store!</Link>
