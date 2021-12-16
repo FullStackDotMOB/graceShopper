@@ -35,6 +35,7 @@ export class AllProducts extends Component {
                 </div>
                 <h3>${product.price / 100}</h3>
                 <p>#{product.SKU}</p>
+                <button type="submit">Add Item to Cart</button>
               </div>
             </div>
           ))}
