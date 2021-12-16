@@ -1,31 +1,10 @@
-// Orlando: filename should be capitalized
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { me } from '../store';
 import { fetchCart } from '../store/cart';
 
-class Cart extends React.Component {
-  //   constructor(props){
-  //   super(props);
-  //  const = { Cart } = this.state
-
-  //     this.handleSubmit = this.handleSubmit.bind(this);
-  //     this.handleChange = this.handleChange.bind(this);
-  //   }
-
-  //   handleSubmit(evt) {
-  //     evt.preventDefault();
-  //     this.props.thunk({ ...this.state });
-
-  //     }
-  //   }
-
-  //   handleChange(evt) {
-  //     this.setState({ [evt.target.name]: evt.target.value });
-  //     console.log('handleChange evt.target -->', evt.target);
-  //   }
-
+class GuestCart extends React.Component {
   async componentDidMount() {
     await this.props.me(); //ME thunk
     if (this.props.auth.id) {
@@ -35,7 +14,7 @@ class Cart extends React.Component {
   }
 
   render() {
-    const { cart } = this.props;
+    const { cart, addedProducts } = this.props;
 
     return (
       <div>
@@ -91,15 +70,16 @@ class Cart extends React.Component {
     );
   }
 }
-
 const mapState = (state) => ({
+  addedProducts: state.addedProducts,
   cart: state.cart,
   auth: state.auth,
 });
 
 const mapDispatch = (dispatch) => ({
+  addToCart: (addedProducts) => dispatch(addedProducts),
   fetchCart: (userId) => dispatch(fetchCart(userId)),
   me: () => dispatch(me),
 });
 
-export default connect(mapState, mapDispatch)(Cart);
+export default connect(mapState, mapDispatch)(GuestCart);
