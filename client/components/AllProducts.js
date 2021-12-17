@@ -15,6 +15,7 @@ export class AllProducts extends Component {
   render() {
     // const Products = this.props.loadProducts;
     // console.log('product', Products);
+    //if it finds this
     const { addToCart, addedProducts } = this.props;
 
     return (
@@ -22,8 +23,8 @@ export class AllProducts extends Component {
         <h2>Welcome to Our Products Page!</h2>
         <div>
           {this.props.allProducts.map((product) => (
-            <div key={product.id}>
-              <div>
+            <div id="grid-item" key={product.id}>
+              <div id="grid-item">
                 <div>
                   <Link to={`products/${product.id}`}>
                     <h3>{product.name}</h3>
@@ -38,7 +39,6 @@ export class AllProducts extends Component {
                 </div>
                 <h3>${product.price / 100}</h3>
                 <p>#{product.SKU}</p>
-                <button type="submit">Add Item to Cart</button>
               </div>
               <button
                 onClick={() => {
@@ -62,6 +62,8 @@ const mapDispatch = (dispatch) => {
   return {
     addToCart: (addedProducts) => dispatch(addToCart(addedProducts)),
     loadProducts: () => dispatch(fetchProducts()),
+    addProductToCart: (userId, productId) =>
+      dispatch(addProductToCart(userId, productId)),
   };
 };
 
