@@ -40,13 +40,23 @@ export class AllProducts extends Component {
                 <h3>${product.price / 100}</h3>
                 <p>#{product.SKU}</p>
               </div>
-              <button
-                onClick={() => {
-                  addToCart(product);
-                }}
-              >
-                <label>Add to Cart</label>
-              </button>
+              {addToCart ? (
+                <button
+                  onClick={() => {
+                    addToCart(product);
+                  }}
+                >
+                  <label>Add to Cart</label>
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    addProductToCart();
+                  }}
+                >
+                  <label>Add to Cart</label>
+                </button>
+              )}
             </div>
           ))}
         </div>
