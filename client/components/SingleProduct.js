@@ -19,9 +19,25 @@ export class SingleProduct extends React.Component {
             <img src={this.props.storedProduct.imageUrl} />
             <h2>${this.props.storedProduct.price / 100}</h2>
             <p>{this.props.storedProduct.description}</p>
-            <button>
-              <label>Add Product to Cart</label>
-            </button>
+            <div>
+              {addToCart ? (
+                <button
+                  onClick={() => {
+                    addToCart(product);
+                  }}
+                >
+                  <label>Add to Cart</label>
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    addProductToCart();
+                  }}
+                >
+                  <label>Add to Cart</label>
+                </button>
+              )}
+            </div>
           </div>
         </ul>
       </div>
@@ -36,6 +52,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchProduct: (singleProduct) => dispatch(fetchProduct(singleProduct)),
+    addProductToCart: (userId, productId) =>
+      dispatch(addProductToCart(userId, productId)),
   };
 };
 
