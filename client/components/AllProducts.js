@@ -80,3 +80,4 @@ const mapDispatch = (dispatch) => {
 export default connect(mapState, mapDispatch)(AllProducts);
 
 //Testing Merge Conflict Solution
+//Capitalize C
