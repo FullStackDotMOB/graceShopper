@@ -62,7 +62,9 @@ class GuestCart extends React.Component {
           </Link>
         </div>
         <div>
-          <button>Complete Your Order</button>
+          <Link to="/Checkout">
+            <button>Complete Your Order</button>
+          </Link>
         </div>
         <h2>
           <Link to="/products">Check out the Product Store!</Link>
