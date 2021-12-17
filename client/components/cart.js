@@ -82,7 +82,9 @@ class Cart extends React.Component {
           </div>
         )}
         <div>
-          <button>Complete Your Order</button>
+          <Link to="/Checkout">
+            <button>Complete Your Order</button>
+          </Link>
         </div>
         <h2>
           <Link to="/products">Check out the Product Store!</Link>
